@@ -7,8 +7,8 @@ $ docker run --name hoover-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=H
 
 Setup Application:
 ```
-$ github
-$ goto folder
+$ git clone https://github.com/danielmfj/hoover-sim.git
+$ cd hoover-sim
 $ mvn clean package docker:build
 $ docker run -p 8080:8080 --name hoover-sim --link hoover-mysql:latest hoover/hoover-sim:latest
 ```
