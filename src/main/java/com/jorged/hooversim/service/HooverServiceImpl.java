@@ -1,6 +1,6 @@
 package com.jorged.hooversim.service;
 
-import com.jorged.hooversim.dao.MoveDAOImpl;
+import com.jorged.hooversim.dao.MoveDAO;
 import com.jorged.hooversim.exception.WrongConfigurationException;
 import com.jorged.hooversim.model.Configuration;
 import com.jorged.hooversim.model.Coordinates;
@@ -10,17 +10,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
 
 @Service
+@Transactional
 public class HooverServiceImpl implements HooverService {
 
     private static final Logger logger = LoggerFactory.getLogger(HooverServiceImpl.class);
 
     @Autowired
-    private MoveDAOImpl moveDAO;
+    private MoveDAO moveDAO;
 
     private Coordinates roomSize;
     private Coordinates actualPosition;

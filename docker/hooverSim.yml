@@ -1,6 +1,6 @@
 spring:
     jpa:
-        database: MYSQL
+        database: HooverSim
         hibernate:
             ddl-auto: validate
 

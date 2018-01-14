@@ -17,33 +17,8 @@
 		<beans:property name="suffix" value=".jsp"/>
 	</beans:bean>
 
-	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<beans:property name="url" value="jdbc:mysql://localhost:3306/HooverSim"/>
-		<beans:property name="username" value="root"/>
-		<beans:property name="password" value="root"/>
-	</beans:bean>
-
-	<beans:bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<beans:property name="dataSource" ref="dataSource"/>
-		<beans:property name="annotatedClasses">
-			<beans:list>
-				<beans:value>com.jorged.hooversim.model.Move</beans:value>
-				<beans:value>com.jorged.hooversim.model.Result</beans:value>
-				<beans:value>com.jorged.hooversim.model.Configuration</beans:value>
-			</beans:list>
-		</beans:property>
-		<beans:property name="hibernateProperties">
-			<beans:props>
-				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</beans:prop>
-				<beans:prop key="hibernate.show_sql">true</beans:prop>
-				<beans:prop key="hbm2ddl.auto">create-drop</beans:prop>
-			</beans:props>
-		</beans:property>
-	</beans:bean>
-
 	<beans:bean id="moveDAO" class="com.jorged.hooversim.dao.MoveDAOImpl">
-		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+		<!--<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>-->
 	</beans:bean>
 
 	<beans:bean id="hooverService" class="com.jorged.hooversim.service.HooverServiceImpl">
@@ -52,7 +27,4 @@
 
 	<context:component-scan base-package="com.jorged.hooversim"/>
 
-	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-	</beans:bean>
 </beans:beans>

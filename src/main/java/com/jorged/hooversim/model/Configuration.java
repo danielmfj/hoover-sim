@@ -1,10 +1,10 @@
 package com.jorged.hooversim.model;
 
 import com.jorged.hooversim.exception.WrongConfigurationException;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,13 +15,7 @@ import static com.jorged.hooversim.exception.WrongConfigurationException.MSG_STA
 
 @Data
 @AllArgsConstructor
-@Entity
-@Table(name = "CONFIGURATIONS")
 public class Configuration {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
     private List<Integer> roomSize;
     private List<Integer> coords;

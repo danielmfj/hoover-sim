@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
+
 @Data
 @RequiredArgsConstructor
 @Entity
@@ -17,9 +18,21 @@ public class Move {
     private long id;
 
     @NonNull
+    @Transient
     private Coordinates origin;
 
     @NonNull
+    @Transient
     private Coordinates destination;
+
+    @Column(name = "origin")
+    private String getOriginString() {
+        return origin.toString();
+    }
+
+    @Column(name = "destination")
+    private String getDestinationString() {
+        return origin.toString();
+    }
 
 }

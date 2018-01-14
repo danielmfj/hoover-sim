@@ -2,17 +2,15 @@ package com.jorged.hooversim.dao;
 
 import com.jorged.hooversim.model.Coordinates;
 import com.jorged.hooversim.model.Move;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class MoveDAOImpl implements MoveDAO {
 
-    @Getter
-    @Setter
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -20,7 +18,7 @@ public class MoveDAOImpl implements MoveDAO {
 
         Move move = new Move(origin, destination);
 
-        Session session = this.sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         session.persist(move);
     }
 
