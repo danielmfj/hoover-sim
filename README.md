@@ -22,7 +22,12 @@ $ docker run -p 8080:8080 --name hoover-sim --link hoover-mysql:latest hoover/ho
 ## Usage
 Hit the endpoint (http://localhost:8080/simulate) with a JSON configuration.
 ```
-
+curl -X POST \
+  http://localhost:8080/simulate \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 87b0ee9b-7f58-7f50-a7d1-bc74233039cc' \
+  -d '{"roomSize":[5,5],"coords":[1,2],"patches":[[1,0],[2,2],[2,3]],"instructions":"NNESEESWNWW"}'
 ```
 Response is a JSON object with final location of hoover and number of patches cleaned.
 
