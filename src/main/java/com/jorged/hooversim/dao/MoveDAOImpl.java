@@ -10,16 +10,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MoveDAOImpl implements MoveDAO {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+//    @Autowired
+//    private SessionFactory sessionFactory;
 
     @Override
     public void addMove(Coordinates origin, Coordinates destination) {
 
         Move move = new Move(origin, destination);
 
-        Session session = sessionFactory.getCurrentSession();
-        session.persist(move);
+//        Session session = sessionFactory.getCurrentSession();
+//        session.persist(move);
     }
 
 }

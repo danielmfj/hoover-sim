@@ -1,5 +1,4 @@
 ## Instructions
-
 Setup MySql server:
 ```
 $ docker run --name hoover-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=HooverSim -e MYSQL_USER=root -e MYSQL_PASSWORD=root -d mysql/mysql-server:latest
@@ -14,6 +13,9 @@ $ docker run -p 8080:8080 --name hoover-sim --link hoover-mysql:latest hoover/ho
 ```
 ## Usage
 Hit the endpoint (http://localhost:8080/simulate) with a JSON configuration.
+```
+
+```
 Response is a JSON object with final location of hoover and number of patches cleaned.
 
 ## Introduction

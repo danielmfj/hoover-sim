@@ -16,10 +16,10 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
+//@Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.jorged.hooversim.configuration" })
-@PropertySource(value = { "classpath:application.properties" })
+@ComponentScan({ "com.jorged.hooversim" })
+@PropertySource(value = { "classpath:hibernate.properties" })
 public class HibernateConfiguration {
 
     @Autowired
@@ -29,7 +29,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("com.jorged.hooversim.model");
+        sessionFactory.setPackagesToScan("com.jorged.hooversim");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

@@ -114,7 +114,7 @@ public class HooverServiceImpl implements HooverService {
             logger.debug("Patches:" + patches);
             logger.debug("Origin: " + originalPosition + " -> Destination: " + actualPosition);
 
-            //moveDAO.addMove(originalPosition, actualPosition);
+//            moveDAO.addMove(originalPosition, actualPosition);
         }
 
         Result result = new Result(actualPosition, initialPatches - patches.size());
