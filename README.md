@@ -1,3 +1,11 @@
+## Stack
+This application was built with:
+* JDK 8
+* Spring Boot
+* Hibernate
+* Docker
+* SLF4J
+
 ## Instructions
 Setup MySql server:
 ```
